@@ -4,12 +4,12 @@ package com.drakontia.qiitaclient.view
  * Created by drakontia on 2017/06/10.
  */
 import android.content.Context
-import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.drakontia.qiitaclient.R
 import com.drakontia.qiitaclient.model.Article
 import com.drakontia.qiitaclient.bindView
@@ -43,6 +43,6 @@ class ArticleView : FrameLayout {
         titleTextView.text = article.title
         userNameTextView.text = article.user.name
 
-        profileImageView.setBackgroundColor(Color.RED)
+        Glide.with(context).load(article.user.profileImageUrl).into(profileImageView)
     }
 }
